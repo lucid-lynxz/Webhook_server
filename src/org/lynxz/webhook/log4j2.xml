@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+    <properties>
+        <!-- 相对路径是相对于startup.sh 启动时所在路径的-->
+        <property name="LOG_HOME">/Users/lynxz/Workspace/JavaProjects/WebhookServer/logs</property>
+        <!--<property name="LOG_HOME">/usr/local/tomcat-8.5.4/logs/zxzLogs</property>-->
+        <!--<property name="LOG_HOME">/home/lynx/ProgramFiles/apache-tomcat-7.0.70/logs/zxzLogs</property>-->
+    </properties>
+
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    charset="GBK"
+                    pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- 输出结果到指定文件，同时可以指定输出数据的格式,append=“false”指定不追加到文件末尾 -->
+        <File name="log" fileName="${LOG_HOME}/test.log" append="true">
+            <PatternLayout charset="GBK"
+                           pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </File>
+
+        <!-- 自动追加日志信息到文件中，直至文件达到预定的大小，然后自动重新生成另外一个文件来记录之后的日志 -->
+        <RollingFile name="RollingFile" fileName="${LOG_HOME}/app.log"
+                     filePattern="logs/$${time:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout
+                    charset="GBK"
+                    pattern="%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="500 MB"/>
+        </RollingFile>
+    </appenders>
+
+    <loggers>
+        <!-- 指定类只输出level级别及以上的日志 -->
+        <logger name="org.lynxz.webhook.ApiServlet" level="fatal"
+                additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+
+        <!-- 默认log输入形式 ,ref的值就是上述配置的击中appenders的name值 -->
+        <root level="trace">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFile"/>
+        </root>
+    </loggers>
+</configuration>

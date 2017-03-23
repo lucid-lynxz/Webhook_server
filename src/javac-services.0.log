@@ -1,0 +1,24 @@
+INFO	?	main	2017-03-23T08:47:07.197Z	org.javacs.Main#connectToNode	Connected to parent using socket on port 55282
+INFO	?	main	2017-03-23T08:47:07.312Z	org.javacs.JavaLanguageServer#doLint	Lint [/Users/lynxz/Workspace/others/WebhookServer/src/org/lynxz/webhook/constants/Params.java]
+SEVERE	?	main	2017-03-23T08:47:08.450Z	org.javacs.Main$4#onError	Can't find configuration file for /Users/lynxz/Workspace/others/WebhookServer/src/org/lynxz/webhook/constants/Params.java
+org.javacs.NoJavaConfigException: Can't find configuration file for /Users/lynxz/Workspace/others/WebhookServer/src/org/lynxz/webhook/constants/Params.java
+	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
+	at java.util.Optional.orElseThrow(Optional.java:290)
+	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
+	at org.javacs.JavaLanguageServer.access$600(JavaLanguageServer.java:31)
+	at org.javacs.JavaLanguageServer$1.didClose(JavaLanguageServer.java:227)
+	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:202)
+	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:194)
+	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
+	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
+	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
+	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
+	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
+	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
+	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
+	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
+	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
+	at org.javacs.Main.run(Main.java:150)
+	at org.javacs.Main.main(Main.java:69)
+
+INFO	?	main	2017-03-23T08:47:14.341Z	org.javacs.Main#run	Connection closed

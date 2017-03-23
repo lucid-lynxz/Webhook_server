@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebHookServer:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/WebHookServer_war</output-path>
+    <root id="archive" name="WebHookServer_war.war">
+      <element id="artifact" artifact-name="WebHookServer:war exploded" />
+    </root>
+  </artifact>
+</component>
